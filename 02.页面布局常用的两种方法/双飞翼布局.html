@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>圣杯布局</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				min-width: 600px;
+			}
+			#header{
+				background-color: grey;
+				height: 20px;
+			}
+			#footer{
+				background-color: grey;
+				height: 20px;
+			}
+			#center{
+				background-color: orangered;
+				width: 100%;
+				float: left;
+			}
+			.center_in{
+				padding: 0 200px;
+			}
+			/*-----------解决高度塌陷问题---------*/
+			.clearfix{
+				*zoom:1;
+			}
+			.clearfix:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			/*-----------解决高度塌陷问题---------*/
+			#middle{
+				/* padding: 0 200px; */
+				overflow: hidden;/*伪等高布局*/
+			}
+			#left{
+				background-color: orange;
+				width: 200px;
+				float: left;
+				margin-left: -100%;
+			}
+			#right{
+				background-color: orange;
+				width: 200px;
+				float: right;
+				margin-left: -200px;
+			}
+			#left,#center,#right{
+				/*伪等高布局*/
+				padding-bottom: 10000px;
+				margin-bottom: -10000px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">header</div>
+		<div id="middle" class="clearfix">
+			<div id="center">
+				<div class="center_in">center</div>
+			</div>
+			<div id="left">
+				leftleftleftleftleft<br />
+				leftleftleftleftleft<br />
+				leftleftleftleftleft<br />
+				leftleftleftleftleft<br />
+				leftleftleftleftleft<br />
+			</div>	
+			<div id="right">right</div>
+		</div>
+		<div id="footer">footer</div>
+	</body>
+</html>
